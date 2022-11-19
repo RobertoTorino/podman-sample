@@ -1,7 +1,5 @@
 FROM docker.io/library/alpine:latest
-RUN apk update && apk add nginx && apk add nano && mkdir -p /run/nginx && apk add curl shadow bind-tools tcpdump
-RUN apk add openrc --no-cache
-RUN apk add --upgrade podman-docker
+RUN apk update && apk add nginx && mkdir -p /run/nginx && apk add curl shadow bind-tools tcpdump
 EXPOSE 80/tcp
 COPY nginx.conf /etc/nginx
 COPY . /etc/nginx/html
